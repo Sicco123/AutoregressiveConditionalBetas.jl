@@ -1,2 +1,5 @@
 /Manifest.toml
 *.pdf
+/test/test.jl
+/test/data/*
+/test/figures/*

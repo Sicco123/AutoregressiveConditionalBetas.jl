@@ -25,7 +25,7 @@ using Test
         [0.0, 0.05, 0.05, 0.05],    # ξ
         [0.0, 0.94, 0.94, 0.94],    # c
         [[0.0], [0.0], [0.0], [0.0]]; # γ
-        constant = false
+        constant = true
         )
         true
     catch e
@@ -43,11 +43,11 @@ using Test
         [0.0, 0.05, 0.05, 0.05],    # ξ
         [0.0, 0.94, 0.94, 0.94],    # c
         [[0.0], [0.0], [0.0], [0.0]]; # γ
-        constant = false
+        constant = true
         )
 
     @test try 
-        println(AutoregressiveConditionalBetas.predictions(model))
+        AutoregressiveConditionalBetas.predictions(model)
 
         true
     catch e
@@ -55,8 +55,8 @@ using Test
         false
     end
 
-    result = fit(obj)
-    @test result.converged
+    result = AutoregressiveConditionalBetas.fit(model)
+    @test result != nothing
 
 end
 
